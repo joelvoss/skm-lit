@@ -20,7 +20,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@babel/runtime": "7.7.6",
+    "@babel/runtime": "7.7.7",
     "@google-cloud/storage": "4.1.3",
     "dotenv": "8.2.0",
     "mkdirp": "0.5.1",
@@ -29,11 +29,11 @@
     "url": "0.11.0"
   },
   "devDependencies": {
-    "@types/jest": "24.0.23",
+    "@types/jest": "24.0.24",
     "@types/mkdirp": "0.5.2",
     "@types/tmp": "0.1.0",
-    "jvdx": "0.0.7",
-    "typescript": "3.7.3"
+    "jvdx": "0.0.8",
+    "typescript": "3.7.4"
   },
   "husky": {
     "hooks": {
