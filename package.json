@@ -29,10 +29,10 @@
     "url": "0.11.0"
   },
   "devDependencies": {
-    "@types/jest": "24.0.24",
+    "@types/jest": "24.0.25",
     "@types/mkdirp": "0.5.2",
     "@types/tmp": "0.1.0",
-    "jvdx": "0.0.8",
+    "jvdx": "0.0.9",
     "typescript": "3.7.4"
   },
   "husky": {
