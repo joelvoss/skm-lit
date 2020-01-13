@@ -1,6 +1,6 @@
 {
   "name": "skm-lit",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "skm-lit is a library for retrieving secrets stored in Cloud Storage",
   "author": "Joel Voß <mail@joelvoss.com>",
   "license": "MIT",
