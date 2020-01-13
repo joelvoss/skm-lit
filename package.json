@@ -11,7 +11,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "jvdx build rollup 'src/index.ts' -f esm,cjs",
+    "build": "jvdx build rollup 'src/index.ts' -f esm,cjs -c",
     "lint": "jvdx lint",
     "format": "jvdx format",
     "test": "jvdx test",
