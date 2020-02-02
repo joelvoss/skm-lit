@@ -4,6 +4,14 @@
   "description": "skm-lit is a library for retrieving secrets stored in Cloud Storage",
   "author": "Joel Voß <mail@joelvoss.com>",
   "license": "MIT",
+  "homepage": "https://github.com/joelvoss/skm-lit",
+  "bugs": {
+    "url": "https://github.com/joelvoss/skm-lit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelvoss/skm-lit.git"
+  },
   "main": "dist/skm-lit.cjs.js",
   "module": "dist/skm-lit.esm.js",
   "typings": "dist/types/index.d.ts",
@@ -16,11 +24,11 @@
     "format": "jvdx format",
     "test": "jvdx test",
     "validate": "npm run format && npm run lint && npm run test",
-    "clean": "jvdx clean",
+    "clean": "jvdx clean dist",
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@babel/runtime": "7.8.3",
+    "@babel/runtime": "7.8.4",
     "@google-cloud/storage": "4.3.0",
     "dotenv": "8.2.0",
     "mkdirp": "1.0.3",
@@ -29,10 +37,10 @@
     "url": "0.11.0"
   },
   "devDependencies": {
-    "@types/jest": "25.1.0",
+    "@types/jest": "25.1.1",
     "@types/mkdirp": "0.5.2",
     "@types/tmp": "0.1.0",
-    "jvdx": "0.1.4",
+    "jvdx": "0.1.6",
     "typescript": "3.7.5"
   },
   "husky": {
