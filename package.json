@@ -19,28 +19,24 @@
     "dist"
   ],
   "scripts": {
-    "build": "jvdx build rollup 'src/index.ts' -f esm,cjs -c",
-    "lint": "jvdx lint",
-    "format": "jvdx format",
-    "test": "jvdx test",
-    "validate": "npm run format && npm run lint && npm run test",
-    "clean": "jvdx clean dist",
-    "prepublish": "npm run build"
+    "start": "./Taskfile.sh",
+    "test": "./Taskfile.sh test",
+    "prepublish": "./Taskfile.sh build"
   },
   "dependencies": {
-    "@babel/runtime": "7.9.2",
+    "@babel/runtime": "7.9.6",
     "@google-cloud/storage": "4.7.0",
     "dotenv": "8.2.0",
     "mkdirp": "1.0.4",
     "read-pkg-up": "7.0.1",
-    "tmp": "0.1.0",
+    "tmp": "0.2.1",
     "url": "0.11.0"
   },
   "devDependencies": {
     "@types/jest": "25.2.1",
     "@types/mkdirp": "1.0.0",
-    "@types/tmp": "0.1.0",
-    "jvdx": "1.1.1",
+    "@types/tmp": "0.2.0",
+    "jvdx": "1.2.0",
     "typescript": "3.8.3"
   },
   "husky": {
