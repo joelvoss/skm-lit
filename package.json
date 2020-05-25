@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.9.6",
-    "@google-cloud/storage": "4.7.0",
+    "@google-cloud/storage": "5.0.1",
     "dotenv": "8.2.0",
     "mkdirp": "1.0.4",
     "read-pkg-up": "7.0.1",
@@ -33,11 +33,11 @@
     "url": "0.11.0"
   },
   "devDependencies": {
-    "@types/jest": "25.2.1",
+    "@types/jest": "25.2.3",
     "@types/mkdirp": "1.0.0",
     "@types/tmp": "0.2.0",
-    "jvdx": "1.2.0",
-    "typescript": "3.8.3"
+    "jvdx": "1.4.2",
+    "typescript": "3.9.3"
   },
   "husky": {
     "hooks": {
