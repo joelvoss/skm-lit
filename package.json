@@ -33,11 +33,11 @@
     "url": "0.11.0"
   },
   "devDependencies": {
-    "@types/jest": "25.2.3",
-    "@types/mkdirp": "1.0.0",
+    "@types/jest": "26.0.0",
+    "@types/mkdirp": "1.0.1",
     "@types/tmp": "0.2.0",
-    "jvdx": "1.5.0",
-    "typescript": "3.9.3"
+    "jvdx": "2.0.0",
+    "typescript": "3.9.5"
   },
   "husky": {
     "hooks": {
