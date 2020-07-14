@@ -24,8 +24,8 @@
     "prepublish": "./Taskfile.sh build"
   },
   "dependencies": {
-    "@babel/runtime": "7.10.3",
-    "@google-cloud/storage": "5.1.1",
+    "@babel/runtime": "7.10.5",
+    "@google-cloud/storage": "5.1.2",
     "dotenv": "8.2.0",
     "mkdirp": "1.0.4",
     "read-pkg-up": "7.0.1",
@@ -33,11 +33,11 @@
     "url": "0.11.0"
   },
   "devDependencies": {
-    "@types/jest": "26.0.0",
+    "@types/jest": "26.0.4",
     "@types/mkdirp": "1.0.1",
     "@types/tmp": "0.2.0",
-    "jvdx": "2.0.1",
-    "typescript": "3.9.5"
+    "jvdx": "2.1.1",
+    "typescript": "3.9.6"
   },
   "husky": {
     "hooks": {
