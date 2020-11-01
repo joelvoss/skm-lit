@@ -3,6 +3,8 @@
 **skm-lit** _(secret key manager)_ is a library for retrieving secrets stored
 in a Cloud Storage bucket.
 
+> Watch out: This library is Node.js only!
+
 ## Installation
 
 ```bash
@@ -165,7 +167,7 @@ skm-lit://my-bucket/path/to/my-secret?destination=/path/to/file
 
 ---
 
-This project was bootstrapped with [jvdx](https://github.com/joelvoss/jvdx).
+This project was bootstrapped with [@jvdx/core](https://github.com/joelvoss/jvdx-core).
 
 [cloud-sdk]: https://cloud.google.com/sdk
 [twtbs-nexus]: https://nexus.cloud-dev.twt.de/repository/npm-public/
