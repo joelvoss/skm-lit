@@ -106,10 +106,11 @@ export function resolveReference(
 	let filepath;
 	switch (dest) {
 		case 'tmpfile':
-		case 'tempfile':
+		case 'tempfile': {
 			const f = tmp.fileSync({ prefix: 'skm-lit-' });
 			filepath = f.name;
 			break;
+		}
 		default: {
 			// Guard against dest = undefined
 			if (dest) {
