@@ -34,7 +34,7 @@
     "url": "0.11.0"
   },
   "devDependencies": {
-    "@jvdx/core": "^2.0.1",
+    "@jvdx/core": "^2.1.0",
     "@types/jest": "^26.0.19",
     "@types/mkdirp": "^1.0.1",
     "@types/tmp": "^0.2.0",
