@@ -26,7 +26,7 @@
     "prepublishOnly": "./Taskfile.sh build"
   },
   "dependencies": {
-    "@google-cloud/storage": "5.8.0",
+    "@google-cloud/storage": "5.8.3",
     "dotenv": "8.2.0",
     "mkdirp": "1.0.4",
     "read-pkg-up": "7.0.1",
@@ -34,11 +34,11 @@
     "url": "0.11.0"
   },
   "devDependencies": {
-    "@jvdx/core": "^2.2.4",
-    "@types/jest": "^26.0.20",
+    "@jvdx/core": "^2.2.7",
+    "@types/jest": "^26.0.22",
     "@types/mkdirp": "^1.0.1",
     "@types/tmp": "^0.2.0",
-    "typescript": "4.1.5"
+    "typescript": "4.2.3"
   },
   "prettier": "@jvdx/prettier-config",
   "prettierIgnore": [
