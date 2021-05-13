@@ -1,10 +1,10 @@
 import * as fs from 'fs';
-import * as url from 'url';
+import { URL } from 'url';
 import * as tmp from 'tmp';
 import * as path from 'path';
 import { execSync } from 'child_process';
 import * as mkdirp from 'mkdirp';
-import * as readPkgUp from 'read-pkg-up';
+import { readPackageUpSync } from 'readpkg-lit';
 
 /**
  * Load environment variables from a .env file. dotenv will never modify any
@@ -20,7 +20,7 @@ if (fs.existsSync('.env')) {
 }
 
 // Get the current package.json path relative to the caller
-const rpu = readPkgUp.sync({
+const rpu = readPackageUpSync({
 	cwd: fs.realpathSync(process.cwd()),
 });
 
@@ -33,6 +33,7 @@ const fromPkgRoot = (...paths: string[]) =>
 	path.join(path.dirname(rpu!.path), ...paths);
 
 const prefixRegexp = new RegExp('^skm-lit://', 'i');
+const leadingSlashRegexp = new RegExp('^/');
 let unused = true;
 
 // Set sensible defaults for all relevant environment variables.
@@ -82,27 +83,24 @@ if (unused) {
  * resolveReference resolves a given skm-lit reference into bucket, object
  * and an optional filepath values.
  */
-export function resolveReference(
-	ref: string,
-): { bucket: string; object: string; filepath?: string } {
-	// Remove the skm-lit:// prefix
-	ref = ref.replace(prefixRegexp, '');
+export function resolveReference(ref: string): {
+	bucket: string;
+	object: string;
+	filepath?: string;
+} {
+	// Parse the URL to extract any query params
+	const u = new URL(ref);
 
-	// Remove any leading slashes (it messes up bucket names)
-	ref = ref.replace('/^//', '');
-
-	// Parse the remainder as a URL to extract any query params
-	const u = url.parse(ref);
-
-	// Separate bucket from path and create the reference
-	const [bucket, ...object] = u.pathname!.split('/');
+	const bucket = u.hostname;
+	// Remove any leading slashes
+	const object = u.pathname.replace(leadingSlashRegexp, '');
 	if (!object) {
 		throw new Error(`invalid secret format ${ref}`);
 	}
 
 	// Parse out destination
 	// `filepath` will be undefined if no destination paramter was set
-	const dest = parseQuery(u.query!).destination;
+	const dest = u.searchParams.get('destination');
 	let filepath;
 	switch (dest) {
 		case 'tmpfile':
@@ -127,27 +125,10 @@ export function resolveReference(
 	}
 	return {
 		bucket,
-		object: object.join('/'),
+		object,
 		// Append filepath if available
 		...(filepath ? { filepath } : {}),
 	};
-}
-
-/**
- * parseQuery parses a given url query string into a plain object.
- */
-export function parseQuery(query: string) {
-	const params: { [key: string]: string } = {};
-	if (!query) {
-		return params;
-	}
-
-	const hashes = query.split('&');
-	for (let hash of hashes) {
-		const [key, val] = hash.split('=');
-		params[key] = val;
-	}
-	return params;
 }
 
 /**

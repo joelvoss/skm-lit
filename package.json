@@ -14,7 +14,11 @@
   },
   "source": "src/index.ts",
   "main": "dist/skm-lit.js",
-  "module": "dist/skm-lit.es.js",
+  "module": "dist/skm-lit.m.js",
+  "exports": {
+    "require": "./dist/skm-lit.js",
+    "default": "./dist/skm-lit.modern.js"
+  },
   "types": "dist/index.d.ts",
   "files": [
     "dist",
@@ -29,7 +33,7 @@
     "@google-cloud/storage": "5.8.3",
     "dotenv": "8.2.0",
     "mkdirp": "1.0.4",
-    "read-pkg-up": "7.0.1",
+    "readpkg-lit": "^1.1.4",
     "tmp": "0.2.1",
     "url": "0.11.0"
   },

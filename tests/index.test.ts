@@ -1,9 +1,3 @@
-import {
-	resolveReference,
-	parseQuery,
-	fetchDataFromStorageCmd,
-} from '../src/index';
-
 jest.mock('tmp', () => ({
 	fileSync: ({ prefix }: { prefix: string }) => {
 		return {
@@ -20,47 +14,59 @@ jest.mock('path', () => ({
 
 jest.mock('mkdirp');
 
-jest.mock('read-pkg-up', () => ({
-	sync: () => ({
+jest.mock('readpkg-lit', () => ({
+	readPackageUpSync: () => ({
 		path: '/Users/testuser/test-path',
 	}),
 }));
 
-test(`resolveReference should resolve a skm-lit reference string`, () => {
-	const ref1 = `skm-lit://my-bucket/path/to/my-secret`;
-	const ref2 = `skm-lit://my-bucket/path/to/my-secret?destination=tempfile`;
-	const ref3 = `skm-lit://my-bucket/path/to/my-secret?destination=path/to/file`;
-	const ref4 = `skm-lit://my-bucket/path/to/my-secret?destination=/path/to/file`;
+////////////////////////////////////////////////////////////////////////////////
+
+describe(`resolveReference`, () => {
+	const { resolveReference} = require('../src/index');
 
 	const baseExpect = {
 		bucket: 'my-bucket',
 		object: 'path/to/my-secret',
 	};
 
-	expect(resolveReference(ref1)).toEqual(baseExpect);
-	expect(resolveReference(ref2)).toEqual({
-		...baseExpect,
-		filepath: 'skm-lit-test-path',
+	it(`should resolve a reference string`, () => {
+		const ref = `skm-lit://my-bucket/path/to/my-secret`;
+		expect(resolveReference(ref)).toEqual(baseExpect);
 	});
-	expect(resolveReference(ref3)).toEqual({
-		...baseExpect,
-		filepath: '/Users/testuser/test-path/path/to/file',
+
+	it(`should resolve a reference string (dest = tempfile)`, () => {
+		const ref = `skm-lit://my-bucket/path/to/my-secret?destination=tempfile`;
+		expect(resolveReference(ref)).toEqual({
+			...baseExpect,
+			filepath: 'skm-lit-test-path',
+		});
 	});
-	expect(resolveReference(ref4)).toEqual({
-		...baseExpect,
-		filepath: '/path/to/file',
+
+	it(`should resolve a reference string (dest = relative path)`, () => {
+		const ref = `skm-lit://my-bucket/path/to/my-secret?destination=path/to/file`;
+		expect(resolveReference(ref)).toEqual({
+			...baseExpect,
+			filepath: '/Users/testuser/test-path/path/to/file',
+		});
+	});
+
+	it(`should resolve a reference string (dest = absolute path)`, () => {
+		const ref = `skm-lit://my-bucket/path/to/my-secret?destination=/path/to/file`;
+		expect(resolveReference(ref)).toEqual({
+			...baseExpect,
+			filepath: '/path/to/file',
+		});
 	});
 });
 
-test(`parseQuery should parse a url query string into an object`, () => {
-	expect(parseQuery(`first=parameter&second=parameter`)).toEqual({
-		first: 'parameter',
-		second: 'parameter',
-	});
-});
+////////////////////////////////////////////////////////////////////////////////
 
-test(`fetchDataFromStorageCmd returns the correct command string`, () => {
-	const cmd = `
+describe(`fetchDataFromStorageCmd`, () => {
+	const { fetchDataFromStorageCmd} = require('../src/index');
+
+	it(`returns the correct command string`, () => {
+		const cmd = `
 const { Storage } = require("@google-cloud/storage");
 const storage = new Storage();
 storage
@@ -74,4 +80,5 @@ storage
   });`.trim();
 
 	expect(fetchDataFromStorageCmd('test-bucket', 'test-file')).toBe(cmd);
+	});
 });
