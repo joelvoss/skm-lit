@@ -17,7 +17,7 @@
   "module": "dist/skm-lit.m.js",
   "exports": {
     "require": "./dist/skm-lit.js",
-    "default": "./dist/skm-lit.modern.js"
+    "import": "./dist/skm-lit.modern.js"
   },
   "types": "dist/index.d.ts",
   "files": [
