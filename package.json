@@ -12,12 +12,13 @@
     "type": "git",
     "url": "git+https://github.com/joelvoss/skm-lit.git"
   },
+  "type": "module",
   "source": "src/index.ts",
-  "main": "dist/skm-lit.js",
-  "module": "dist/skm-lit.m.js",
+  "main": "dist/retry-lit.cjs",
+  "module": "dist/retry-lit.module.js",
   "exports": {
-    "require": "./dist/skm-lit.js",
-    "import": "./dist/skm-lit.modern.js"
+    "require": "./dist/retry-lit.cjs",
+    "import": "./dist/retry-lit.modern.js"
   },
   "types": "dist/index.d.ts",
   "files": [
