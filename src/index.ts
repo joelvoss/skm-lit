@@ -60,7 +60,7 @@ process.env = Object.keys(process.env).reduce(
 
 				env[key] = plaintext.toString();
 				return env;
-			} catch (err) {
+			} catch (err: any) {
 				console.error(`[ ERR ] ${key}: ${err.stderr.toString()}`);
 				return env;
 			}
