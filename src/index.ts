@@ -1,5 +1,4 @@
 import * as fs from 'fs';
-import { URL } from 'url';
 import * as tmp from 'tmp';
 import * as path from 'path';
 import { execSync } from 'child_process';

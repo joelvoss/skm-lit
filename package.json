@@ -35,8 +35,7 @@
     "dotenv": "10.0.0",
     "mkdirp": "1.0.4",
     "readpkg-lit": "^1.2.1",
-    "tmp": "0.2.1",
-    "url": "0.11.0"
+    "tmp": "0.2.1"
   },
   "devDependencies": {
     "@jvdx/core": "^2.6.0",
