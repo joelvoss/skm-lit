@@ -34,15 +34,15 @@
     "@google-cloud/storage": "5.16.0",
     "dotenv": "10.0.0",
     "mkdirp": "1.0.4",
-    "readpkg-lit": "^1.2.2",
+    "readpkg-lit": "^1.2.4",
     "tmp": "0.2.1"
   },
   "devDependencies": {
-    "@jvdx/core": "^2.7.1",
-    "@types/jest": "^27.0.2",
+    "@jvdx/core": "^2.9.1",
+    "@types/jest": "^27.0.3",
     "@types/mkdirp": "^1.0.2",
     "@types/tmp": "^0.2.2",
-    "typescript": "4.4.4"
+    "typescript": "4.5.2"
   },
   "prettier": "@jvdx/prettier-config",
   "prettierIgnore": [
