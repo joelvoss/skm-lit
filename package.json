@@ -31,14 +31,14 @@
     "prepublishOnly": "./Taskfile.sh build"
   },
   "dependencies": {
-    "@google-cloud/storage": "5.16.0",
+    "@google-cloud/storage": "5.16.1",
     "dotenv": "10.0.0",
     "mkdirp": "1.0.4",
-    "readpkg-lit": "^1.2.4",
+    "readpkg-lit": "^1.2.5",
     "tmp": "0.2.1"
   },
   "devDependencies": {
-    "@jvdx/core": "^2.9.1",
+    "@jvdx/core": "^2.9.2",
     "@types/jest": "^27.0.3",
     "@types/mkdirp": "^1.0.2",
     "@types/tmp": "^0.2.2",
