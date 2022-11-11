@@ -17,6 +17,7 @@
   "main": "dist/retry-lit.cjs",
   "module": "dist/retry-lit.module.js",
   "exports": {
+    "types": "./dist/index.d.ts",
     "require": "./dist/retry-lit.cjs",
     "import": "./dist/retry-lit.modern.js"
   },
@@ -31,18 +32,18 @@
     "prepublishOnly": "./Taskfile.sh build"
   },
   "dependencies": {
-    "@google-cloud/storage": "6.4.2",
-    "dotenv": "16.0.2",
+    "@google-cloud/storage": "6.7.0",
+    "dotenv": "16.0.3",
     "mkdirp": "1.0.4",
-    "readpkg-lit": "^1.4.0",
+    "readpkg-lit": "^1.6.0",
     "tmp": "0.2.1"
   },
   "devDependencies": {
-    "@jvdx/core": "^2.19.0",
-    "@types/jest": "^28.1.6",
+    "@jvdx/core": "^3.1.0",
+    "@types/jest": "^29.2.2",
     "@types/mkdirp": "^1.0.2",
     "@types/tmp": "^0.2.3",
-    "typescript": "4.8.2"
+    "typescript": "4.8.4"
   },
   "prettier": "@jvdx/prettier-config",
   "prettierIgnore": [

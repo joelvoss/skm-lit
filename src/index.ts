@@ -18,18 +18,23 @@ if (fs.existsSync('.env')) {
 	});
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
 // Get the current package.json path relative to the caller
 const rpu = readPackageUpSync({
 	cwd: fs.realpathSync(process.cwd()),
 });
 
+////////////////////////////////////////////////////////////////////////////////
+
 /**
  * fromPkgRoot resolve path relative to callers application root.
- * @param  {string[]} paths - paths to join
- * @return {string}
  */
-const fromPkgRoot = (...paths: string[]) =>
-	path.join(path.dirname(rpu!.path), ...paths);
+function fromPkgRoot(...paths: string[]) {
+	return path.join(path.dirname(rpu!.path), ...paths);
+}
+
+////////////////////////////////////////////////////////////////////////////////
 
 const prefixRegexp = new RegExp('^skm-lit://', 'i');
 const leadingSlashRegexp = new RegExp('^/');
@@ -77,6 +82,8 @@ if (unused) {
 		`[ WARN ] skm-lit was included, but no secrets were found in the environment`,
 	);
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 /**
  * resolveReference resolves a given skm-lit reference into bucket, object
