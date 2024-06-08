@@ -13,6 +13,7 @@ import { readPackageUpSync } from 'readpkg-lit';
  * @see https://github.com/motdotla/dotenv-expand
  */
 if (fs.existsSync('.env')) {
+	// eslint-disable-next-line @typescript-eslint/no-var-requires
 	require('dotenv').config({
 		path: '.env',
 	});
@@ -64,7 +65,8 @@ process.env = Object.keys(process.env).reduce(
 
 				env[key] = plaintext.toString();
 				return env;
-			} catch (err: any) {
+			} catch (err: unknown) {
+				// @ts-expect-error - `err.stderr` exists
 				console.error(`[ ERR ] ${key}: ${err.stderr.toString()}`);
 				return env;
 			}
@@ -77,7 +79,7 @@ process.env = Object.keys(process.env).reduce(
 );
 
 // Warn about unused key-manager
-if (unused) {
+if (!process.env.VITEST && unused) {
 	console.warn(
 		`[ WARN ] skm-lit was included, but no secrets were found in the environment`,
 	);

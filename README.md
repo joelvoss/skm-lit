@@ -8,11 +8,7 @@ in a Cloud Storage bucket.
 ## Installation
 
 ```bash
-# Using npm
 npm install skm-lit
-
-# Using yarn
-yarn add skm-lit
 ```
 
 ## Usage
@@ -167,7 +163,4 @@ skm-lit://my-bucket/path/to/my-secret?destination=/path/to/file
 
 ---
 
-This project was bootstrapped with [@jvdx/core](https://github.com/joelvoss/jvdx-core).
-
 [cloud-sdk]: https://cloud.google.com/sdk
-[twtbs-nexus]: https://nexus.cloud-dev.twt.de/repository/npm-public/

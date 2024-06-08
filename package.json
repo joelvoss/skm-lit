@@ -2,7 +2,7 @@
   "name": "skm-lit",
   "description": "skm-lit is a library for retrieving secrets stored in Cloud Storage",
   "version": "3.0.0",
-  "author": "Joel Voß <mail@joelvoss.com>",
+  "author": "Joel Voss <mail@joelvoss.com>",
   "license": "MIT",
   "homepage": "https://github.com/joelvoss/skm-lit",
   "bugs": {
@@ -16,47 +16,44 @@
     "node": ">=18"
   },
   "type": "module",
-  "source": "src/index.ts",
-  "main": "dist/retry-lit.cjs",
-  "module": "dist/retry-lit.module.js",
-  "exports": {
-    "types": "./dist/index.d.ts",
-    "require": "./dist/retry-lit.cjs",
-    "import": "./dist/retry-lit.modern.js"
-  },
-  "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "LICENSE"
+    "LICENSE",
+    "README.md"
   ],
+  "source": "./src/index.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
   "scripts": {
-    "start": "./Taskfile.sh",
     "test": "./Taskfile.sh test",
     "prepublishOnly": "./Taskfile.sh build"
   },
   "dependencies": {
-    "@google-cloud/storage": "7.3.0",
-    "dotenv": "16.3.1",
+    "@google-cloud/storage": "7.11.2",
+    "dotenv": "16.4.5",
     "mkdirp": "3.0.1",
-    "readpkg-lit": "^1.9.0",
-    "tmp": "0.2.1"
+    "readpkg-lit": "^2.0.2",
+    "tmp": "0.2.3"
   },
   "devDependencies": {
-    "@jvdx/core": "^3.6.0",
-    "@types/jest": "^29.5.5",
-    "@types/mkdirp": "^1.0.2",
-    "@types/tmp": "^0.2.4",
-    "typescript": "5.2.2"
+    "@jvdx/eslint-config": "^4.3.0",
+    "@jvdx/prettier-config": "^0.3.4",
+    "@types/node": "^20.14.2",
+    "@types/tmp": "^0.2.6",
+    "prettier": "^3.3.1",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.13",
+    "vite-plugin-dts": "^3.9.1",
+    "vitest": "^1.6.0"
   },
   "prettier": "@jvdx/prettier-config",
   "prettierIgnore": [
-    "tests/",
-    "dist/"
-  ],
-  "eslintConfig": {
-    "extends": "@jvdx/eslint-config"
-  },
-  "eslintIgnore": [
     "tests/",
     "dist/"
   ]
