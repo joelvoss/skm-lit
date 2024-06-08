@@ -11,6 +11,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
 	plugins: [dts({ rollupTypes: true, logLevel: 'error' })],
 	build: {
+		ssr: true,
 		// NOTE(joel): Don't minify, because every consumer will minify themselves
     // anyway. We're only bundling for the sake of publishing to npm.
 		minify: false,
