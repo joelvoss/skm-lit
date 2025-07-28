@@ -1,9 +1,9 @@
+import { execSync } from 'node:child_process';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { execSync } from 'node:child_process';
-import * as tmp from 'tmp';
 import * as mkdirp from 'mkdirp';
 import { readPackageUpSync } from 'readpkg-lit';
+import * as tmp from 'tmp';
 
 /**
  * Load environment variables from a .env file. dotenv will never modify any
@@ -32,19 +32,26 @@ const rpu = readPackageUpSync({
  * fromPkgRoot resolve path relative to callers application root.
  */
 function fromPkgRoot(...paths: string[]) {
-	return path.join(path.dirname(rpu!.path), ...paths);
+	if (!rpu) {
+		throw new Error(
+			'Could not find package.json in current directory or any parent directory',
+		);
+	}
+	return path.join(path.dirname(rpu.path), ...paths);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-const prefixRegexp = new RegExp('^skm-lit://', 'i');
-const leadingSlashRegexp = new RegExp('^/');
+const prefixRegexp = /^skm-lit:\/\//i;
+const leadingSlashRegexp = /^\//;
 let unused = true;
 
 // Set sensible defaults for all relevant environment variables.
 process.env = Object.keys(process.env).reduce(
 	(env: { [key: string]: string }, key) => {
-		let value = process.env[key]!;
+		const value = process.env[key];
+
+		if (!value) return env;
 
 		if (value.match(prefixRegexp)) {
 			unused = false;
@@ -109,7 +116,7 @@ export function resolveReference(ref: string): {
 	// Parse out destination
 	// `filepath` will be undefined if no destination paramter was set
 	const dest = u.searchParams.get('destination');
-	let filepath;
+	let filepath: string | undefined;
 	switch (dest) {
 		case 'tmpfile':
 		case 'tempfile': {

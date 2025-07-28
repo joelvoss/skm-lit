@@ -1,5 +1,5 @@
-import { describe, test, expect, vi } from 'vitest';
-import { resolveReference, fetchDataFromStorageCmd } from '../src/index';
+import { describe, expect, test, vi } from 'vitest';
+import { fetchDataFromStorageCmd, resolveReference } from '../src/index';
 
 vi.mock('tmp', () => ({
 	fileSync: ({ prefix }: { prefix: string }) => {
@@ -12,7 +12,7 @@ vi.mock('tmp', () => ({
 vi.mock('path', async () => {
 	const path = await vi.importActual('path');
 	return {
-		join: (a: string, b: string) => a + '/' + b,
+		join: (a: string, b: string) => `${a}/${b}`,
 		dirname: (dir: string) => dir,
 		isAbsolute: path.isAbsolute,
 	};

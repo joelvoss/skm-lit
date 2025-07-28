@@ -35,26 +35,20 @@
     "prepublishOnly": "./Taskfile.sh build"
   },
   "dependencies": {
-    "@google-cloud/storage": "7.11.2",
-    "dotenv": "16.4.5",
+    "@google-cloud/storage": "7.16.0",
+    "dotenv": "17.2.1",
     "mkdirp": "3.0.1",
-    "readpkg-lit": "^2.0.2",
+    "readpkg-lit": "2.0.2",
     "tmp": "0.2.3"
   },
   "devDependencies": {
-    "@jvdx/eslint-config": "^4.3.0",
-    "@jvdx/prettier-config": "^0.3.4",
-    "@types/node": "^20.14.2",
+    "@biomejs/biome": "2.1.2",
+    "@types/node": "24.1.0",
     "@types/tmp": "^0.2.6",
-    "prettier": "^3.3.1",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.13",
-    "vite-plugin-dts": "^3.9.1",
-    "vitest": "^1.6.0"
-  },
-  "prettier": "@jvdx/prettier-config",
-  "prettierIgnore": [
-    "tests/",
-    "dist/"
-  ]
+    "jsdom": "26.1.0",
+    "typescript": "5.8.3",
+    "vite": "7.0.6",
+    "vite-plugin-dts": "4.5.4",
+    "vitest": "3.2.4"
+  }
 }

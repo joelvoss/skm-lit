@@ -17,22 +17,26 @@ build() {
 }
 
 format() {
-  echo "Running prettier..."
+  echo "Running biome..."
 
-  prettier \
+  biome check \
+    --formatter-enabled=true \
+		--assist-enabled=true \
+    --linter-enabled=false \
     --write \
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md,mdx,yml,yaml,html}" \
-    "tests/**/*.{js,jsx,ts,tsx,json,css,scss,md,mdx,yml,yaml,html}"
+    ./src ./tests $*
+}
+
+lint() {
+  echo "Running biome..."
+  # NOTE: Use --fix to auto-fix linting errors
+	biome lint \
+		./src ./tests $*
 }
 
 typecheck() {
   echo "Running tsc..."
   tsc --noEmit
-}
-
-lint() {
-  echo "Running eslint..."
-  eslint src
 }
 
 test() {
