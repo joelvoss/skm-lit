@@ -39,7 +39,7 @@
     "dotenv": "17.2.1",
     "mkdirp": "3.0.1",
     "readpkg-lit": "2.0.2",
-    "tmp": "0.2.3"
+    "tmp": "0.2.4"
   },
   "devDependencies": {
     "@biomejs/biome": "2.1.2",
