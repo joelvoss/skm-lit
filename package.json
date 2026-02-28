@@ -35,7 +35,7 @@
     "prepublishOnly": "./Taskfile.sh build"
   },
   "dependencies": {
-    "@google-cloud/storage": "7.16.0",
+    "@google-cloud/storage": "7.19.0",
     "dotenv": "17.2.1",
     "mkdirp": "3.0.1",
     "readpkg-lit": "2.0.2",
