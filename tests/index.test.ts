@@ -1,4 +1,5 @@
 import { describe, expect, test, vi } from 'vitest';
+
 import { fetchDataFromStorageCmd, resolveReference } from '../src/index';
 
 vi.mock('tmp', () => ({
