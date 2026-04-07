@@ -38,7 +38,7 @@
     "@google-cloud/storage": "7.19.0",
     "dotenv": "17.4.1",
     "mkdirp": "3.0.1",
-    "readpkg-lit": "2.2.0",
+    "readpkg-lit": "2.2.1",
     "tmp": "0.2.5"
   },
   "devDependencies": {
