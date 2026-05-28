@@ -39,7 +39,7 @@
     "dotenv": "17.4.2",
     "mkdirp": "3.0.1",
     "readpkg-lit": "2.3.0",
-    "tmp": "0.2.5"
+    "tmp": "0.2.6"
   },
   "devDependencies": {
     "@types/node": "25.6.2",
