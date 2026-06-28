@@ -35,21 +35,21 @@
     "prepublishOnly": "./Taskfile.sh build"
   },
   "dependencies": {
-    "@google-cloud/storage": "7.19.0",
+    "@google-cloud/storage": "7.21.0",
     "dotenv": "17.4.2",
     "mkdirp": "3.0.1",
-    "readpkg-lit": "2.3.0",
-    "tmp": "0.2.5"
+    "readpkg-lit": "2.4.0",
+    "tmp": "0.2.7"
   },
   "devDependencies": {
-    "@types/node": "25.6.2",
+    "@types/node": "26.0.1",
     "@types/tmp": "^0.2.6",
     "jsdom": "29.1.1",
-    "oxfmt": "0.48.0",
-    "oxlint": "1.63.0",
+    "oxfmt": "0.56.0",
+    "oxlint": "1.71.0",
     "typescript": "6.0.3",
-    "vite": "8.0.11",
-    "vite-plugin-bundle-dts": "0.3.0",
-    "vitest": "4.1.5"
+    "vite": "8.1.0",
+    "vite-plugin-bundle-dts": "0.4.0",
+    "vitest": "4.1.9"
   }
 }
